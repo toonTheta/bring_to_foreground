@@ -45,7 +45,8 @@ public class BringtoforegroundPlugin implements FlutterPlugin, MethodCallHandler
         if (call.method.equals("bringAppToForeground")) {
             Intent intent2 = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
 //            Intent intent2 = new Intent(context, context.getClass() );
-            intent2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); // You need this if starting
+            // intent2.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT); // You need this if starting
+              intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
             // the activity from a service
 //            intent2.setAction(Intent.ACTION_MAIN);
 //            intent2.addCategory(Intent.CATEGORY_LAUNCHER);
